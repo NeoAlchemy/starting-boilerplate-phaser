@@ -7,10 +7,11 @@ import { Preloader } from './scenes/Preloader';
 
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
+//  1920x1080
 const config: Phaser.Types.Core.GameConfig = {
     type: AUTO,
-    width: 1024,
-    height: 768,
+    width: 320,
+    height: 480,
     parent: 'game-container',
     backgroundColor: '0x000',
     physics: {
