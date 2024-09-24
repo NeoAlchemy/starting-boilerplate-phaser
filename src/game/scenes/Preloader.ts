@@ -11,7 +11,7 @@ export class Preloader extends Scene
     {
       this.cameras.main.setBackgroundColor(0xF5D77C);
 
-        const logo = this.add.image(160, 100, 'logo');
+        const logo = this.add.image(240, 100, 'logo');
         logo.setScale(0.3);
         this.logo = logo;
 
@@ -20,7 +20,7 @@ export class Preloader extends Scene
         const text2 = this.add.bitmapText(-300, 230, 'Oswald', 'Indie Games', 32);
         this.companyLine2 = text2;
 
-        this.add.text(140, 300, ['Loading...'], {
+        this.add.text(200, 300, ['Loading...'], {
             fontFamily: 'Arial',
             fontSize: '12px',
             color: 'black',
@@ -57,13 +57,13 @@ export class Preloader extends Scene
       
           this.tweens.add({
             targets: this.companyLine1, //your image that must spin
-            x: '100',
+            x: '160',
             ease: 'Elastic',
             duration: 500, //duration is in milliseconds
           });
           this.tweens.add({
             targets: this.companyLine2, //your image that must spin
-            x: '100',
+            x: '160',
             ease: 'Elastic',
             duration: 500, //duration is in milliseconds
           });

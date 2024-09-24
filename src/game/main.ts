@@ -10,8 +10,8 @@ import { Preloader } from './scenes/Preloader';
 //  1920x1080
 const config: Phaser.Types.Core.GameConfig = {
     type: AUTO,
-    width: 320,
-    height: 480,
+    width: 480,
+    height: 800,
     parent: 'game-container',
     backgroundColor: '0x000',
     physics: {
