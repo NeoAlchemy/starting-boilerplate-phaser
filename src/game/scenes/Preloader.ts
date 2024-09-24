@@ -9,21 +9,22 @@ export class Preloader extends Scene
 
     init ()
     {
-        //  We loaded this image in our Boot Scene, so we can display it here
-        this.add.image(512, 384, 'background');
+        this.add.image(200, 200, 'splashscreen');
 
-        //  A simple progress bar. This is the outline of the bar.
-        this.add.rectangle(512, 384, 468, 32).setStrokeStyle(1, 0xffffff);
+        const logo = this.add.image(200, 100, 'logo');
+        logo.setScale(0.3);
+        this.logo = logo;
 
-        //  This is the progress bar itself. It will increase in size from the left based on the % of progress.
-        const bar = this.add.rectangle(512-230, 384, 4, 28, 0xffffff);
+        const text1 = this.add.bitmapText(-300, 200, 'Oswald', 'NeoAlchemy', 32);
+        this.companyLine1 = text1;
+        const text2 = this.add.bitmapText(-300, 230, 'Oswald', 'Indie Games', 32);
+        this.companyLine2 = text2;
 
-        //  Use the 'progress' event emitted by the LoaderPlugin to update the loading bar
-        this.load.on('progress', (progress: number) => {
-
-            //  Update the progress bar (our bar is 464px wide, so 100% = 464px)
-            bar.width = 4 + (460 * progress);
-
+        this.add.text(180, 300, ['Loading...'], {
+            fontFamily: 'Arial',
+            fontSize: '12px',
+            color: 'black',
+            align: 'center',
         });
     }
 
@@ -36,12 +37,39 @@ export class Preloader extends Scene
         this.load.image('star', 'star.png');
     }
 
+    private logo!: Phaser.GameObjects.Image;
+    private companyLine1!: Phaser.GameObjects.BitmapText;
+    private companyLine2!: Phaser.GameObjects.BitmapText;
+
     create ()
     {
         //  When all the assets have loaded, it's often worth creating global objects here that the rest of the game can use.
         //  For example, you can define global animations here, so we can use them in other scenes.
 
         //  Move to the MainMenu. You could also swap this for a Scene Transition, such as a camera fade.
-        this.scene.start('MainMenu');
+        this.tweens.add({
+            targets: this.logo, //your image that must spin
+            rotation: 2 * Math.PI, //rotation value must be radian
+            ease: 'Bounce',
+            delay: 600,
+            duration: 600, //duration is in milliseconds
+          });
+      
+          this.tweens.add({
+            targets: this.companyLine1, //your image that must spin
+            x: '140',
+            ease: 'Elastic',
+            duration: 500, //duration is in milliseconds
+          });
+          this.tweens.add({
+            targets: this.companyLine2, //your image that must spin
+            x: '140',
+            ease: 'Elastic',
+            duration: 500, //duration is in milliseconds
+          });
+      
+          setTimeout(() => {
+            this.scene.start('Game');
+          }, 2000);
     }
 }
