@@ -10,8 +10,8 @@ export class Preloader extends Scene
     init ()
     {
       this.cameras.main.setBackgroundColor(0xF5D77C);
-      
-      const logo = this.add.image(240, 100, 'logo');
+
+      const logo = this.add.image(230, 100, 'logo');
       logo.setScale(0.3);
       this.logo = logo;
 
