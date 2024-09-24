@@ -15,11 +15,11 @@ export class Boot extends Scene
         this.load.image('background', 'assets/bg.png');
         this.load.bitmapFont({
             key: 'Oswald',
-            textureURL: 'public/assets/font/OswaldLightRed.png',
-            fontDataURL: 'public/assets/font/OswaldLightRed.xml',
+            textureURL: './assets/font/OswaldLightRed.png',
+            fontDataURL: './assets/font/OswaldLightRed.xml',
         });
-        this.load.image('logo', 'public/assets/logo.png');
-        this.load.image('splashscreen', 'public/assets/splashscreen.png');
+        this.load.image('logo', './assets/logo.png');
+        this.load.image('splashscreen', './assets/splashscreen.png');
     }
 
     create ()
